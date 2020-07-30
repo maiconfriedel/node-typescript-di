@@ -1,18 +1,18 @@
 import { Request, Response } from "express";
-import { inject, injectable } from "tsyringe";
+import { injectable, injectAll } from "tsyringe";
 
 import { IUserRepository } from "../interfaces/repositories/IUserRepository";
 
 @injectable()
 export class UserController {
   constructor(
-    @inject("IUserRepository") private userRepository: IUserRepository,
-    @inject("IUserRepository") private userRepository2: IUserRepository
+    @injectAll("IUserRepository") private userRepositorys: IUserRepository[]
   ) {}
 
   async index(req: Request, res: Response) {
-    const response = await this.userRepository.create();
-    await this.userRepository2.create();
+    const response = await Promise.all(
+      this.userRepositorys.map(async (repo) => await repo.create(repo.id))
+    );
 
     return res.json({ response });
   }

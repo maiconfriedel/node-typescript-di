@@ -1,3 +1,5 @@
 export interface IUserRepository {
-  create(): Promise<string>;
+  create(text: string): Promise<string>;
+
+  id: string;
 }

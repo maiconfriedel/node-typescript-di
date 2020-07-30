@@ -1,7 +1,7 @@
 import { IUserRepository } from "../../interfaces/repositories/IUserRepository";
 import { uuid } from "uuidv4";
 
-export class UserRepository implements IUserRepository {
+export class UserRepositoryTemp implements IUserRepository {
   public id: string;
 
   constructor() {
@@ -11,6 +11,6 @@ export class UserRepository implements IUserRepository {
   async create(text: string): Promise<string> {
     console.log(this.id);
 
-    return text;
+    return `TEMP: ${text}`;
   }
 }

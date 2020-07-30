@@ -1,14 +1,22 @@
 import "reflect-metadata";
 import express, { Application } from "express";
-import { registry, container, Lifecycle } from "tsyringe";
+import { registry, Lifecycle } from "tsyringe";
 
 import { Routes } from "./routes";
 import { UserRepository } from "./infrastructure/repositories/UserRepository";
+import { UserRepositoryTemp } from "./infrastructure/repositories/UserRepositoryTemp";
 
 @registry([
   {
     token: "IUserRepository",
     useClass: UserRepository,
+    options: {
+      lifecycle: Lifecycle.Transient,
+    },
+  },
+  {
+    token: "IUserRepository",
+    useClass: UserRepositoryTemp,
     options: {
       lifecycle: Lifecycle.Transient,
     },
