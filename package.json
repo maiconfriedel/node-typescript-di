@@ -1,5 +1,6 @@
 {
-  "name": "node-di",
+  "name": "node-typescript-di",
+  "description": "An example of using Dependency Injection pattern with Node and Typescript",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
