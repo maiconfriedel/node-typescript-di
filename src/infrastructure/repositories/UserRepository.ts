@@ -1,4 +1,4 @@
-import { IUserRepository } from "../interfaces/IUserRepository";
+import { IUserRepository } from "../../interfaces/repositories/IUserRepository";
 import { uuid } from "uuidv4";
 
 export class UserRepository implements IUserRepository {

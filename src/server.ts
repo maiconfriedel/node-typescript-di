@@ -3,7 +3,7 @@ import express, { Application } from "express";
 import { registry, container, Lifecycle } from "tsyringe";
 
 import { Routes } from "./routes";
-import { UserRepository } from "./repositories/UserRepository";
+import { UserRepository } from "./infrastructure/repositories/UserRepository";
 
 @registry([
   {

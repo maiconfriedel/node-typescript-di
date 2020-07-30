@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { container } from "tsyringe";
 
-import { UserController } from "./controller/UserController";
-import { ProfileController } from "./controller/ProfileController";
+import { UserController } from "./controllers/UserController";
+import { ProfileController } from "./controllers/ProfileController";
 
 export class Routes {
   private routes: Router = Router();
